@@ -1,0 +1,26 @@
+int romanToInt(char* s) {
+int i,j;
+char num_cell[7]={'M','D','C','L','X','V','I'};
+int  num_bell[7]={1000,500,100,50,10,5,1};
+int num=0;
+int start=0;
+int end=0;
+for(i=0;i<strlen(s);i++)
+{
+  
+  for(j=0;j<7;j++)
+  {
+      if(s[i]==num_cell[j])
+      end=j;
+  }
+  if(end>=start)
+  {num+=num_bell[end];}
+  else
+  {num+=num_bell[end];num-=(2*num_bell[start]);}
+  start=end;
+ printf("%d    %d   %d\n",start,end,num);
+ 
+}
+return num;
+
+}
