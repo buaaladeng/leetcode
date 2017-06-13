@@ -1,0 +1,71 @@
+char* intToRoman(int num) {
+static char roman_num[20]={'\0'};
+char* p;
+p=roman_num;
+int i,j,k;
+char num_cell[7]={'M','D','C','L','X','V','I'};
+int  num_bell[13]={1000,900,500,400,100,90,50,40,10,9,5,4,1};   //900=CD 90=XC 1=I 2=II 3=III 4=IV 5=V 6=VI 7=VII 8=VIII 9=IX
+int  num_every[4]={0};                                          //num_every[0]=1000  num_every[100]=100 ...
+num_every[0]=num/1000;
+num_every[1]=(num%1000)/100;
+num_every[2]=(num%100)/10;
+num_every[3]=num%10;
+
+j=0;
+if(num_every[0]!=0)                             //thousand 
+{
+  for(k=0;k<num_every[0];k++)
+  {roman_num[j]=num_cell[0];
+  j++;}
+}
+
+for(i=1;i<4;i++)                             //one to handred
+{  
+  if(num_every[i]!=0)
+ {
+    if((1<=num_every[i])&&(num_every[i]<=3))                 //1~3
+     {
+ 
+        for(k=0;k<num_every[i];k++)
+        {
+        roman_num[j]=num_cell[2*i];
+        j++;
+        }
+    }
+   
+    if(num_every[i]==4)                  //4 
+    {
+      roman_num[j]=num_cell[2*i];
+      roman_num[j+1]=num_cell[2*i-1];
+      j+=2;
+    }
+    
+    if(num_every[i]==5)                 //5
+    {
+      roman_num[j]=num_cell[2*i-1];
+      j++;
+    }
+    
+      if((6<=num_every[i])&&(num_every[i]<=8))                 //6~8
+    {
+        roman_num[j]=num_cell[2*i-1];
+        j++;
+        for(k=0;k<num_every[i]-5;k++)
+        {
+        roman_num[j]=num_cell[2*i];
+        j++;
+        }
+    }  
+       if(num_every[i]==9)                  //9 
+    {
+      roman_num[j]=num_cell[2*i];
+      roman_num[j+1]=num_cell[2*i-1];
+      j+=2;
+    }
+   
+}    
+}
+
+return p;
+
+}
