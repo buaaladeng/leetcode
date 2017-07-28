@@ -11,3 +11,5 @@ THIS IS MY LEETCODE PRACTICE CODE.
 （13）Roman to Integer--------by C
 
 (26)Remove Duplicates from Sorted Array--------by C
+
+(27)Remove Element--------by C
