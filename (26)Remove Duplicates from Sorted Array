@@ -1,0 +1,20 @@
+int removeDuplicates(int* nums, int numsSize) {
+ int i,j;
+ int num;
+ 
+    
+ if(numsSize==0)
+    return 0;
+
+    for(j=1,i=1;i<numsSize;)    //i is the array index; j is the last array index.
+    {
+      if(nums[i]!=nums[i-1])
+      {nums[j++]=nums[i];i++;}
+       else
+       {i+=1;}  
+    printf("%d\n",nums[i]);
+    }
+    
+   num=j;
+   return num;
+}
