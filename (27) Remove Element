@@ -1,0 +1,14 @@
+int removeElement(int* nums, int numsSize, int val) {
+int i,j;
+int num;
+    if(numsSize==0)
+        return 0;
+    
+for(i=0,j=0;i<numsSize;)             //i is index of array,j is index of last array.
+    if(nums[i]==val)
+    {i++;}
+    else
+    {nums[j++]=nums[i++];}
+num=j;
+return num;
+}
